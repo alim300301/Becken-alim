@@ -1,0 +1,17 @@
+{
+  "name": "becken-alim",
+  "version": "1.0.0",
+  "description": "Tugas Beckend",
+  "main": "app.js",
+  "scripts": {
+    "test": "alim"
+  },
+  "keywords": [
+    "coba"
+  ],
+  "author": "alim",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

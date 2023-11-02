@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tulis Data</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff;
+    }
+
+    form {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #0051ff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #0051ff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+    }
+
+    #data {
+      margin-top: 20px;
+      width: 500px;
+      height: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/saveData" method="post">
+    <h1>Input Data</h1>
+    <input type="text" name="nama" placeholder="Nama">
+    <input type="text" name="alamat" placeholder="Alamat">
+    <input type="text" name="pekerjaan" placeholder="Pekerjaan">
+    <input type="submit" value="Kirim">
+  </form>
+  <div id="hasil"></div>
+  <h2>Data Tersimpan</h2>
+  <button onclick="getData()">Tampilkan Data</button>
+  <div id="data"></div>
+  <script>
+    function getData() {
+      fetch('/getData')
+        .then(response => response.json())
+        .then(data => {
+          const dataDiv = document.getElementById('data');
+          dataDiv.innerHTML = JSON.stringify(data, null, 2);
+        });
+    }
+  </script>
+</body>
+</html>
